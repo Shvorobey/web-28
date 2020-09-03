@@ -5,7 +5,6 @@
 @section('content')
     <!-- Page Content -->
     <div class="container">
-
         <div class="row">
             <h1> Удаление (редактирование) новостей </h1>
             <table class="table table-hover-dark">
@@ -38,10 +37,7 @@
                     </tr>
                 @endforeach
                 </tbody>
-
             </table>
-
-
 
 @endsection
 

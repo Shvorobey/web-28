@@ -27,9 +27,7 @@ Route::get('/category/{key}', News_by_category::class)->name('news_by_category')
 
 Route::post('/news/{id}', SaveCommentController::class)->name('save_comment');
 
-
 // ADMIN PANEL
-
 Route::get('/admin/add_news', 'Admin_news_Controller@add')->name('add_news_get');
 
 Route::post('/admin/add_news', 'Admin_news_Controller@save')->name('add_news_post');
@@ -42,15 +40,19 @@ Route::get('/admin/delete_news', 'Admin_news_Controller@delete')->name('delete_n
 
 Route::delete('/admin/delete_news', 'Admin_news_Controller@delete')->name('delete_news_delete');
 
-Route::get('/404', function (){return view('404');}) -> name('404');
+Route::get('/404', function () {
+    return view('404');
+})->name('404');
 
-Route::get('/mail_subscribed', MailSubscribedController::class) ->name('mail_subscribed');
+//MAIL
+Route::get('/mail_subscribed', MailSubscribedController::class)->name('mail_subscribed');
 
-Route::get('/send_mail', function (){
+Route::get('/send_mail', function () {
     $mail = new \App\Mail\UserSubscribed();
     $mail->subject = 'Welcome to news site';
     \Illuminate\Support\Facades\Mail::to('a.shvorobey@gmail.com')->send($mail);
-}) -> name('send_mail');
+})->name('send_mail');
+
 
 Auth::routes();
 

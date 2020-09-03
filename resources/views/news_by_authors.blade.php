@@ -5,16 +5,13 @@
 @section('content')
     <!-- Page Content -->
     <div class="container">
-
         <div class="row">
 
             <!-- Blog Entries Column -->
             <div class="col-md-8">
-
                 <h1 class="my-4">Все новости автора:
                     <small style="color: red">{{$author->name}}</small>
                 </h1>
-
             @foreach($author->news as $new)
                 <!-- Blog Post -->
                     <div class="card mb-4">
@@ -45,7 +42,6 @@
                         <a class="page-link" href="#">Newer &rarr;</a>
                     </li>
                 </ul>
-
             </div>
             @endsection
 

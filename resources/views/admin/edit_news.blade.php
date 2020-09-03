@@ -5,9 +5,7 @@
 @section('content')
     <!-- Page Content -->
     <div class="container">
-
         <div class="row">
-
             @if ($errors->any())
                 <div class="alert alert-danger">
                     <ul>
@@ -17,7 +15,6 @@
                     </ul>
                 </div>
             @endif
-
             <form action="add_news" method="post" enctype="multipart/form-data">
                 @csrf
                 {{--                {{ csrf_field() }}--}}
@@ -33,7 +30,6 @@
                 <input type="file" name="image"><br>
                 <input type="submit" value="Save"><br>
             </form>
-
         </div>
 @endsection
 

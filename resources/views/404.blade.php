@@ -23,7 +23,6 @@
             <li><a class="pinterest" href="https://www.pinterest.com/"></a></li>
         </ul>
     </div>
-
 </div>
 
 </body>

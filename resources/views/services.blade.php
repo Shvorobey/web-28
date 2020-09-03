@@ -5,13 +5,11 @@
 @section('content')
     <!-- Page Content -->
     <div class="container">
-
         <div class="row">
 
             <!-- Blog Entries Column -->
             <div class="col-md-8">
                 <p>{{$services->text}}</p>
-
                 <img src="{{$services->image}}" style="position: relative" alt="Services">
             </div>
             @endsection

@@ -5,17 +5,15 @@
 @section('content')
     <!-- Page Content -->
     <div class="container">
-
         <div class="row">
 
             <!-- Blog Entries Column -->
             <div class="col-md-8">
-
                 <h1 class="my-4">Все новости категории:
                     <small style="color: red">{{$category->category}}</small>
                 </h1>
-
             @foreach($category -> news as $new)
+
                 <!-- Blog Post -->
                     <div class="card mb-4">
                         <img class="card-img-top" src="{{$new->img}}" alt="Card image cap">
@@ -46,7 +44,6 @@
                         <a class="page-link" href="#">Newer &rarr;</a>
                     </li>
                 </ul>
-
             </div>
             @endsection
 

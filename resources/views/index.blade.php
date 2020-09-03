@@ -5,16 +5,12 @@
 @section('content')
     <!-- Page Content -->
     <div class="container">
-
         <div class="row">
-
             <!-- Blog Entries Column -->
             <div class="col-md-8">
-
                 <h1 class="my-4">Page Heading
                     <small>Secondary Text</small>
                 </h1>
-
             @foreach($news as $new)
                 <!-- Blog Post -->
                     <div class="card mb-4">
@@ -22,7 +18,8 @@
                         <div class="card-body">
                             <h2 class="card-title">{{$new->title}}</h2>
                             <p class="card-text">{{mb_substr($new->body, 0, 200)}} ...</p>
-                            <a href="{{route('single_news', $new->id)}}" class="btn btn-primary">Читать полностью &rarr;</a>
+                            <a href="{{route('single_news', $new->id)}}" class="btn btn-primary">Читать полностью
+                                &rarr;</a>
                         </div>
                         <div class="card-footer text-muted">
                             Posted on {{$new->created_at}} by
@@ -31,7 +28,8 @@
                         <div class="card-footer text-muted">
                             Категории:
                             @foreach($new->category as $categor)
-                            <a style="background-color: yellow" href="{{route('news_by_category', $categor->key)}}">{{$categor->category}}</a>
+                                <a style="background-color: yellow"
+                                   href="{{route('news_by_category', $categor->key)}}">{{$categor->category}}</a>
                             @endforeach
                         </div>
                     </div>
@@ -56,7 +54,6 @@
                         <li class="page-item"><a class="page-link" href="?page={{$news->lastPage()}}">Конец</a></li>
                     @endif
                 </ul>
-
             </div>
             @endsection
 
@@ -86,7 +83,6 @@
                                     @foreach($users as $user)
                                         <li>{{$user->name}} - {{$user->created_at}}</li>
                                     @endforeach
-
                                 </ul>
                             </div>
                         </div>

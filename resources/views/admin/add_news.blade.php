@@ -5,9 +5,7 @@
 @section('content')
     <!-- Page Content -->
     <div class="container">
-
         <div class="row">
-
             @if ($errors->any())
                 <div class="alert alert-danger">
                     <ul>
@@ -43,7 +41,6 @@
                 <button class="btn-save btn btn-primary btn-sm">Save</button><br>
             </form>
                 @endif
-
         </div>
 
         <script type="text/javascript">

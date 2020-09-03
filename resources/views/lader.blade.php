@@ -1,13 +1,8 @@
-
 <div id="preloader_malc">
-
     <div>
-
         <img src="/images/Load.gif">
         <img src="/images/Loading.gif">
-
     </div>
-
 </div>
 
 <style type="text/css">
@@ -20,6 +15,7 @@
         background: #FFFFFF;
         z-index: 99
     }
+
     #preloader_malc div {
         background: #FFFFFF;
         width: 300px;
@@ -42,8 +38,8 @@
 </style>
 
 <script type="text/javascript">
-    window.onload = function() {
-        setTimeout(function() {
+    window.onload = function () {
+        setTimeout(function () {
             document.getElementById("preloader_malc").style.display = "none";
         }, 2000);
     };

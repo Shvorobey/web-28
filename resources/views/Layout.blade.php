@@ -24,20 +24,17 @@
 <nav class="navbar navbar-expand-lg navbar-dark bg-dark fixed-top">
     <div class="container">
         <a class="navbar-brand" href="{{route('home')}}">NEWS</a>
-        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarResponsive"
+                aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
             <span class="navbar-toggler-icon"></span>
         </button>
         <div class="collapse navbar-collapse" id="navbarResponsive">
             <ul class="navbar-nav ml-auto">
-                <form method = 'GET' action="/mail_subscribed">
+                <form method='GET' action="/mail_subscribed">
                     <input type="text" name="email">
                     <input type="submit" value="Подписаться">
                 </form>
-{{--                <li class="nav-item active">--}}
-{{--                    <a class="nav-link" href="#">Home--}}
-{{--                        <span class="sr-only">(current)</span>--}}
-{{--                    </a>--}}
-{{--                </li>--}}
+
                 @inject('pages', '\App\Page')
                 @foreach($pages->show_pages() as $page)
                     <li class="nav-item">
@@ -49,15 +46,14 @@
                 </li>
 
                 @if(\Auth::check())
-                    <li class="nav-item" >
+                    <li class="nav-item">
                         <a class="nav-link" style="color: red" href="{{route('add_news_get')}}">Администрирование</a>
                     </li>
                 @endif
-                    <li class="nav-item">
-                        <a class="nav-link" style="color: greenyellow"
-                        href="{{route('login')}}">@if(\Auth::check()){{\Auth::user()->email}}
-                            @else Вход @endif </a>
-
+                <li class="nav-item">
+                    <a class="nav-link" style="color: greenyellow"
+                       href="{{route('login')}}">@if(\Auth::check()){{\Auth::user()->email}}
+                        @else Вход @endif </a>
             </ul>
         </div>
     </div>
@@ -70,9 +66,9 @@
 <div class="col-md-4">
 
     <!-- Search Widget -->
-    @yield('search')
+@yield('search')
 
-    <!-- Categories Widget -->
+<!-- Categories Widget -->
     <div class="card my-4">
         <h5 class="card-header">Categories</h5>
         <div class="card-body">
@@ -82,9 +78,9 @@
 
                         @inject('categories', '\App\Category')
                         @foreach($categories->show_categories() as $category)
-                        <li>
-                            <a href="{{route('news_by_category', $category->key)}}">{{$category->category}}</a>
-                        </li>
+                            <li>
+                                <a href="{{route('news_by_category', $category->key)}}">{{$category->category}}</a>
+                            </li>
                         @endforeach
 
                     </ul>
@@ -108,7 +104,8 @@
                     @endforeach
 
                 </ul>
-            </div>        </div>
+            </div>
+        </div>
     </div>
 
 </div>
