@@ -14,6 +14,7 @@ class ApiCRUDcontroller extends Controller
         $news->body = $request->post('body');
         $news->img = $request->post('img');
         $news->save();
+
         return response()->json($news, 201);
     }
 
@@ -25,6 +26,7 @@ class ApiCRUDcontroller extends Controller
         $news->body = $request->post('body');
         $news->img = $request->post('img');
         $news->save();
+
         return response()->json($news, 200);
     }
 }

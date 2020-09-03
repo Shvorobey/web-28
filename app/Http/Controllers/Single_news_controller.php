@@ -13,7 +13,6 @@ class Single_news_controller extends Controller
         $news = News::where('id', '=', $id)->first();
         $comments = Comment::where('news_id', '=', $id)->get();
 
-        return view('single_news', ['news'=>$news, 'comments' => $comments]);
+        return view('single_news', ['news' => $news, 'comments' => $comments]);
     }
-
 }

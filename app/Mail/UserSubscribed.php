@@ -15,7 +15,7 @@ class UserSubscribed extends Mailable
 
     /**
      * Create a new message instance.
-     *
+     * @param string $email
      * @return void
      */
     public function __construct(string $email)

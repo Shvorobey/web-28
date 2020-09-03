@@ -11,7 +11,6 @@ class SaveCommentController extends Controller
     {
         if (\Auth::check()) {
             if ($request->method() == 'POST') {
-
                 $last_comment = (Comment::where('author', '=', \Auth::user()->name)
                     ->orderBy('created_at', 'desc')
                     ->first())

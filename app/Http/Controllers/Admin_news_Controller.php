@@ -15,8 +15,8 @@ class Admin_news_Controller extends Controller
     {
         $authors = Author::all();
         $categories = Category::all();
-        return view('admin.add_news', ['authors' => $authors, 'categories' => $categories]);
 
+        return view('admin.add_news', ['authors' => $authors, 'categories' => $categories]);
     }
 
     public function save(Request $request)
@@ -25,9 +25,9 @@ class Admin_news_Controller extends Controller
             if ($request->method() == 'POST') {
                 $this->validate($request, [
                     'author_id' => 'required | numeric',
-                    'title' => 'required | max:100 | min: 3',
-                    'body' => 'required | min: 20',
-                    'image' => 'image'
+                    'title'     => 'required | max:100 | min: 3',
+                    'body'      => 'required | min: 20',
+                    'image'     => 'image'
                 ]);
                 $news = new News();
                 $news->author_id = $request->input('author_id');
@@ -49,10 +49,9 @@ class Admin_news_Controller extends Controller
 
                 return redirect()->route('single_news', $news->id);
             }
-        }else{
+        } else {
             return redirect()->route('index');
         }
-
     }
 
     public function delete(Request $request)
@@ -64,6 +63,7 @@ class Admin_news_Controller extends Controller
             $log = new Logger('new');
             $log->pushHandler(new StreamHandler(__DIR__ . '/../../../Logs/del_news.log', Logger::INFO));
             $log->info('Пользователь ' . \Auth::user()->name . ' - удалил новость № ' . $request->input('id'));
+
             return back();
         } else {
             return view('admin.delete_news', ['news' => News::all()]);
@@ -75,8 +75,9 @@ class Admin_news_Controller extends Controller
         if (\Auth::check()) {
             $news = News::where('id', '=', $id)->first();
             $authors = Author::all();
+
             return view('admin.edit_news', ['news' => $news, 'authors' => $authors]);
-        }else{
+        } else {
             return redirect('404');
         }
     }
@@ -86,9 +87,9 @@ class Admin_news_Controller extends Controller
         if ($request->method() == 'POST') {
             $this->validate($request, [
                 'author_id' => 'required | numeric',
-                'title' => 'required | max:100 | min: 3',
-                'body' => 'required | min: 20',
-                'image' => 'image'
+                'title'     => 'required | max:100 | min: 3',
+                'body'      => 'required | min: 20',
+                'image'     => 'image'
             ]);
             $news = News::where('id', '=', $request->input('id'))->first();
             $news->author_id = $request->input('author_id');
@@ -102,6 +103,7 @@ class Admin_news_Controller extends Controller
             }
             $news->save();
         }
-        return redirect('/news/'.$news->id);
+        return redirect('/news/' . $news->id);
     }
 }
+

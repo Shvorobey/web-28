@@ -12,6 +12,7 @@ class MailSubscribedController extends Controller
     {
         $mail = new UserSubscribed($request->input('email'));
         SendMail::dispatch($mail)->onQueue('mails');
+
         return view('mail_subscribed');
     }
 }
